@@ -18,24 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HelloWorld!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ge5-zQ-ZcL">
-                                <rect key="frame" x="143" y="246" width="88" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.2659337765583818" green="0.37824015485923712" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ac2-cI-xXi">
-                                <rect key="frame" x="290" y="317" width="38" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <state key="normal" title="Stop"/>
-                                <connections>
-                                    <action selector="stopButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FZK-J9-muT"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGq-Vn-jgK">
-                                <rect key="frame" x="170" y="396" width="34" height="33"/>
+                                <rect key="frame" x="170" y="594" width="34" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <state key="normal" title="Play"/>
@@ -44,20 +28,58 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8x-ml-cKs">
-                                <rect key="frame" x="29" y="318" width="74" height="33"/>
+                                <rect key="frame" x="49" y="559" width="57" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <state key="normal" title="Recorder"/>
+                                <state key="normal" title="Record"/>
                                 <connections>
                                     <action selector="recordButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="chd-Xe-G4G"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BAw-FX-3lQ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="512"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="512" id="8sd-WV-YwO"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordCell" id="bp4-Rw-1OP">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bp4-Rw-1OP" id="v1y-O1-aOv">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="EYV-Ci-f5J"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="A7X-71-iXG"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ac2-cI-xXi">
+                                <rect key="frame" x="282" y="559" width="38" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <state key="normal" title="Stop"/>
+                                <connections>
+                                    <action selector="stopButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FZK-J9-muT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="BAw-FX-3lQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0sN-45-ABb"/>
+                            <constraint firstItem="BAw-FX-3lQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aer-zv-glp"/>
+                            <constraint firstItem="BAw-FX-3lQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bES-LX-NDG"/>
+                            <constraint firstItem="BAw-FX-3lQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="fsf-XQ-XQ6"/>
+                            <constraint firstItem="BAw-FX-3lQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tAQ-Gi-lVu"/>
+                            <constraint firstItem="BAw-FX-3lQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tzq-fu-Nhf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="mainLabel" destination="ge5-zQ-ZcL" id="rBC-va-6Le"/>
+                        <outlet property="RecordFileView" destination="BAw-FX-3lQ" id="oyx-2l-MxW"/>
                         <outlet property="playButton" destination="hGq-Vn-jgK" id="JQd-Sx-Rd6"/>
                         <outlet property="recordButton" destination="w8x-ml-cKs" id="SNc-hd-4Da"/>
                         <outlet property="stopButton" destination="ac2-cI-xXi" id="bNr-46-wBH"/>
