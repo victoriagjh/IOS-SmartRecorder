@@ -1,12 +1,18 @@
 import UIKit
 import AVFoundation
+
+class recordCellTableViewCell:UITableViewCell {
+    @IBOutlet weak var fileTimeLabel: UILabel!
+    @IBOutlet weak var sendFileButton: UIButton!
+    @IBOutlet weak var fileNameLabel: UILabel!
+}
+
 class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate,UITableViewDelegate,UITableViewDataSource {
     var audioPlayer: AVAudioPlayer?
     var audioRecorder: AVAudioRecorder?
 
     var recordFiles:[String] = [""]
     
-    @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
@@ -27,7 +33,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         let soundFilePath = dirPaths[0]
         let soundFileURL = NSURL(fileURLWithPath: soundFilePath)
         
-        recordFiles = getRecordFileList() as! [String]
+        recordFiles = getRecordFileNameList() as! [String]
 
         let audioSession = AVAudioSession.sharedInstance()
         do {
@@ -67,7 +73,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         let date:Date = Date()
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ko_KR")
-        formatter.dateFormat = "yyyy_MM_dd hh:mm:ss"
+        formatter.dateFormat = "yyyy_MM_dd HH:MM:ss"
         formatter.timeZone = NSTimeZone(name:"UTC") as TimeZone?
         let dateString = formatter.string(from: date)
         
@@ -75,7 +81,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         return soundFilePath
     }
     
-    func getRecordFileList() -> Array<Any> {
+    func getRecordFileNameList() -> Array<Any> {
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         do{
             let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil, options:[])
@@ -100,8 +106,13 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         
         if audioRecorder?.isRecording == true {
             audioRecorder?.stop()
-            recordFiles = getRecordFileList() as! [String]
-            RecordFileView.reloadData()
+            recordFiles = getRecordFileNameList() as! [String]
+            let range = NSMakeRange(0, self.RecordFileView.numberOfSections)
+            let sections = NSIndexSet(indexesIn: range)
+            self.RecordFileView.reloadSections(sections as IndexSet, with: .automatic)
+//            RecordFileView.reloadData()
+        
+
         } else {
             print("Audio Recorder was not working")
         }
@@ -142,13 +153,15 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "recordCell",for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recordCell",for: indexPath) as! recordCellTableViewCell
         let fileNames = recordFiles
         let fileName = fileNames[indexPath.row]
-        cell.textLabel!.text = fileName //!는 optional이기 때문에 넣어주는 값임
-        if let capacity:String = fileName{
-            cell.detailTextLabel?.text = "\(capacity)"
-        }
+        cell.fileNameLabel!.text = fileName
+        cell.fileTimeLabel!.text = fileName
+//        cell.textLabel!.text = fileName //!는 optional이기 때문에 넣어주는 값임
+//        if let capacity:String = fileName{
+//            cell.detailTextLabel?.text = "\(capacity)"
+//        }
         return cell
     }
     

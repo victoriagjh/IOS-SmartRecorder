@@ -14,6 +14,7 @@
 		C94EEF38223F86B8009E7665 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94EEF36223F86B8009E7665 /* LaunchScreen.storyboard */; };
 		C94EEF43223F86B8009E7665 /* RecorderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EEF42223F86B8009E7665 /* RecorderTests.swift */; };
 		C94EEF4E223F86B8009E7665 /* RecorderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EEF4D223F86B8009E7665 /* RecorderUITests.swift */; };
+		C989017C228FF9C700FA588C /* choiceSpeecherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C989017B228FF9C700FA588C /* choiceSpeecherViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		C94EEF49223F86B8009E7665 /* RecorderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecorderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C94EEF4D223F86B8009E7665 /* RecorderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderUITests.swift; sourceTree = "<group>"; };
 		C94EEF4F223F86B8009E7665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C989017B228FF9C700FA588C /* choiceSpeecherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = choiceSpeecherViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				C94EEF2D223F86B6009E7665 /* AppDelegate.swift */,
 				C94EEF2F223F86B6009E7665 /* ViewController.swift */,
+				C989017B228FF9C700FA588C /* choiceSpeecherViewController.swift */,
 				C94EEF31223F86B6009E7665 /* Main.storyboard */,
 				C94EEF34223F86B8009E7665 /* Assets.xcassets */,
 				C94EEF36223F86B8009E7665 /* LaunchScreen.storyboard */,
@@ -258,6 +261,7 @@
 			files = (
 				C94EEF30223F86B6009E7665 /* ViewController.swift in Sources */,
 				C94EEF2E223F86B6009E7665 /* AppDelegate.swift in Sources */,
+				C989017C228FF9C700FA588C /* choiceSpeecherViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
