@@ -1,5 +1,6 @@
 import UIKit
 import AVFoundation
+import Alamofire
 
 class recordCellTableViewCell:UITableViewCell {
     @IBOutlet weak var fileTimeLabel: UILabel!
@@ -10,7 +11,7 @@ class recordCellTableViewCell:UITableViewCell {
 class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate,UITableViewDelegate,UITableViewDataSource {
     var audioPlayer: AVAudioPlayer?
     var audioRecorder: AVAudioRecorder?
-
+    var soundFileURL: NSURL?
     var recordFiles:[String] = [""]
     
     @IBOutlet weak var recordButton: UIButton!
@@ -31,7 +32,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         _ = dirPaths[0] as String
         
         let soundFilePath = dirPaths[0]
-        let soundFileURL = NSURL(fileURLWithPath: soundFilePath)
+        soundFileURL = NSURL(fileURLWithPath: soundFilePath)
         
         recordFiles = getRecordFileNameList() as! [String]
 
@@ -42,7 +43,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
             print("AudioSession Error")
         }
         do{
-            try audioRecorder = AVAudioRecorder(url: soundFileURL as URL, settings: recordSettings )
+            try audioRecorder = AVAudioRecorder(url: soundFileURL! as URL, settings: recordSettings )
             audioRecorder?.prepareToRecord()
 
         } catch {
@@ -56,9 +57,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
 
     @IBAction func recordButton(_ sender: Any) {
         if audioRecorder?.isRecording == false {
-            let soundFileURL = NSURL(fileURLWithPath: makeSoundFileURL())
+            soundFileURL = NSURL(fileURLWithPath: makeSoundFileURL())
             do{
-                try audioRecorder = AVAudioRecorder(url: soundFileURL as URL, settings: recordSettings )
+                try audioRecorder = AVAudioRecorder(url: soundFileURL! as URL, settings: recordSettings )
                 audioRecorder?.prepareToRecord()
             } catch {
                 print("AudioRecorder error")
@@ -131,6 +132,41 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
             }
         }
     }
+    func continueRegist(_ sender: AnyObject) {
+        
+        let headers: HTTPHeaders = ["Authorization": "Token ___(**token**)_____",
+                                    "Accept": "application/json"]
+        
+        let audiodata = NSData (contentsOf: soundFileURL! as URL)
+        
+        let parameters: Parameters = [
+                                      "file": audiodata!,
+                                      ]
+        
+        let URL = "172.30.1.25:9999/home"
+//        Alamofire.Manager.upload(.PUT,
+//                                 URL,
+//                                 headers: headers,
+//                                 multipartFormData: { multipartFormData in
+//                                    multipartFormData.appendBodyPart(data: "3".dataUsingEncoding(NSUTF8StringEncoding), name: "from_account_id")
+//                                    multipartFormData.appendBodyPart(data: "4".dataUsingEncoding(NSUTF8StringEncoding), name: "to_account_id")
+//                                    multipartFormData.appendBodyPart(data: audioData, name: "file", fileName: "file", mimeType: "application/octet-stream")
+//        },
+//                                 encodingCompletion: { encodingResult in
+//                                    switch encodingResult {
+//
+//                                    case .Success(let upload, _, _):
+//                                        upload.responseJSON { response in
+//
+//                                        }
+//                                        
+//                                    case .Failure(let encodingError): break
+//                                        // Error while encoding request:
+//                                    }
+//            }
+//        )
+    }
+    
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         recordButton.isEnabled = true

@@ -1,0 +1,6 @@
+framework module Pods_RecorderTests {
+  umbrella header "Pods-RecorderTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

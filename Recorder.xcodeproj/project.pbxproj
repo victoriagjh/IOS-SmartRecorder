@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C0E6C6E655AD2F05A1CC381 /* Pods_RecorderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AD15288F68D77A83145414 /* Pods_RecorderTests.framework */; };
+		9354A0A67D5FFE6CD8B0A486 /* Pods_RecorderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2CE07297FDEF7E249AA9CC /* Pods_RecorderUITests.framework */; };
 		C94EEF2E223F86B6009E7665 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EEF2D223F86B6009E7665 /* AppDelegate.swift */; };
 		C94EEF30223F86B6009E7665 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EEF2F223F86B6009E7665 /* ViewController.swift */; };
 		C94EEF33223F86B6009E7665 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94EEF31223F86B6009E7665 /* Main.storyboard */; };
@@ -15,6 +17,7 @@
 		C94EEF43223F86B8009E7665 /* RecorderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EEF42223F86B8009E7665 /* RecorderTests.swift */; };
 		C94EEF4E223F86B8009E7665 /* RecorderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EEF4D223F86B8009E7665 /* RecorderUITests.swift */; };
 		C989017C228FF9C700FA588C /* choiceSpeecherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C989017B228FF9C700FA588C /* choiceSpeecherViewController.swift */; };
+		FE29F750149709E86D54EA95 /* Pods_Recorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8838F422590626FCE9FEDC1C /* Pods_Recorder.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00E858085EF21C714AFB74FB /* Pods-Recorder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recorder.debug.xcconfig"; path = "Target Support Files/Pods-Recorder/Pods-Recorder.debug.xcconfig"; sourceTree = "<group>"; };
+		0D2CE07297FDEF7E249AA9CC /* Pods_RecorderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecorderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		27AD15288F68D77A83145414 /* Pods_RecorderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecorderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A772A0E94BF4876E30DB42B /* Pods-Recorder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recorder.release.xcconfig"; path = "Target Support Files/Pods-Recorder/Pods-Recorder.release.xcconfig"; sourceTree = "<group>"; };
+		5F2B66E4371468DF86325AAF /* Pods-RecorderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecorderUITests.debug.xcconfig"; path = "Target Support Files/Pods-RecorderUITests/Pods-RecorderUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8838F422590626FCE9FEDC1C /* Pods_Recorder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recorder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DE9E223631A91B4CCA4A367 /* Pods-RecorderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecorderTests.debug.xcconfig"; path = "Target Support Files/Pods-RecorderTests/Pods-RecorderTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A17920F9E6E562C2A451A799 /* Pods-RecorderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecorderUITests.release.xcconfig"; path = "Target Support Files/Pods-RecorderUITests/Pods-RecorderUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C94EEF2A223F86B6009E7665 /* Recorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C94EEF2D223F86B6009E7665 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C94EEF2F223F86B6009E7665 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +60,7 @@
 		C94EEF4D223F86B8009E7665 /* RecorderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderUITests.swift; sourceTree = "<group>"; };
 		C94EEF4F223F86B8009E7665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C989017B228FF9C700FA588C /* choiceSpeecherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = choiceSpeecherViewController.swift; sourceTree = "<group>"; };
+		D2226602C4AFC58DB4A056BF /* Pods-RecorderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecorderTests.release.xcconfig"; path = "Target Support Files/Pods-RecorderTests/Pods-RecorderTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE29F750149709E86D54EA95 /* Pods_Recorder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C0E6C6E655AD2F05A1CC381 /* Pods_RecorderTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +84,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9354A0A67D5FFE6CD8B0A486 /* Pods_RecorderUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F6D180342A3B9494271A567 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8838F422590626FCE9FEDC1C /* Pods_Recorder.framework */,
+				27AD15288F68D77A83145414 /* Pods_RecorderTests.framework */,
+				0D2CE07297FDEF7E249AA9CC /* Pods_RecorderUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		401176F75F020955668EA02A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				00E858085EF21C714AFB74FB /* Pods-Recorder.debug.xcconfig */,
+				4A772A0E94BF4876E30DB42B /* Pods-Recorder.release.xcconfig */,
+				9DE9E223631A91B4CCA4A367 /* Pods-RecorderTests.debug.xcconfig */,
+				D2226602C4AFC58DB4A056BF /* Pods-RecorderTests.release.xcconfig */,
+				5F2B66E4371468DF86325AAF /* Pods-RecorderUITests.debug.xcconfig */,
+				A17920F9E6E562C2A451A799 /* Pods-RecorderUITests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C94EEF21223F86B6009E7665 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +122,8 @@
 				C94EEF41223F86B8009E7665 /* RecorderTests */,
 				C94EEF4C223F86B8009E7665 /* RecorderUITests */,
 				C94EEF2B223F86B6009E7665 /* Products */,
+				401176F75F020955668EA02A /* Pods */,
+				2F6D180342A3B9494271A567 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,9 +176,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C94EEF52223F86B8009E7665 /* Build configuration list for PBXNativeTarget "Recorder" */;
 			buildPhases = (
+				27551634E0AE7F183E6DF6CF /* [CP] Check Pods Manifest.lock */,
 				C94EEF26223F86B6009E7665 /* Sources */,
 				C94EEF27223F86B6009E7665 /* Frameworks */,
 				C94EEF28223F86B6009E7665 /* Resources */,
+				128E74B11AEDB8BDF3C693D0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +195,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C94EEF55223F86B8009E7665 /* Build configuration list for PBXNativeTarget "RecorderTests" */;
 			buildPhases = (
+				17E66B5E40906CE399227FF2 /* [CP] Check Pods Manifest.lock */,
 				C94EEF3A223F86B8009E7665 /* Sources */,
 				C94EEF3B223F86B8009E7665 /* Frameworks */,
 				C94EEF3C223F86B8009E7665 /* Resources */,
@@ -170,6 +214,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C94EEF58223F86B8009E7665 /* Build configuration list for PBXNativeTarget "RecorderUITests" */;
 			buildPhases = (
+				61FB69FD381CB038F670BA99 /* [CP] Check Pods Manifest.lock */,
 				C94EEF45223F86B8009E7665 /* Sources */,
 				C94EEF46223F86B8009E7665 /* Frameworks */,
 				C94EEF47223F86B8009E7665 /* Resources */,
@@ -253,6 +298,97 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		128E74B11AEDB8BDF3C693D0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Recorder/Pods-Recorder-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Recorder/Pods-Recorder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		17E66B5E40906CE399227FF2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RecorderTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		27551634E0AE7F183E6DF6CF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Recorder-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61FB69FD381CB038F670BA99 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RecorderUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C94EEF26223F86B6009E7665 /* Sources */ = {
@@ -432,6 +568,7 @@
 		};
 		C94EEF53223F86B8009E7665 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00E858085EF21C714AFB74FB /* Pods-Recorder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -449,6 +586,7 @@
 		};
 		C94EEF54223F86B8009E7665 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A772A0E94BF4876E30DB42B /* Pods-Recorder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -466,6 +604,7 @@
 		};
 		C94EEF56223F86B8009E7665 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DE9E223631A91B4CCA4A367 /* Pods-RecorderTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -486,6 +625,7 @@
 		};
 		C94EEF57223F86B8009E7665 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2226602C4AFC58DB4A056BF /* Pods-RecorderTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -506,6 +646,7 @@
 		};
 		C94EEF59223F86B8009E7665 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F2B66E4371468DF86325AAF /* Pods-RecorderUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -525,6 +666,7 @@
 		};
 		C94EEF5A223F86B8009E7665 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A17920F9E6E562C2A451A799 /* Pods-RecorderUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
