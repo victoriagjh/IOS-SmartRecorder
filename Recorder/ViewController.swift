@@ -6,6 +6,12 @@ class recordCellTableViewCell:UITableViewCell {
     @IBOutlet weak var fileTimeLabel: UILabel!
     @IBOutlet weak var sendFileButton: UIButton!
     @IBOutlet weak var fileNameLabel: UILabel!
+    var uploadRecordFile: (() -> Void)? = nil
+
+    
+    @IBAction func uploadFile(_ sender: Any) {
+        uploadRecordFile?()
+    }
 }
 
 class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate,UITableViewDelegate,UITableViewDataSource {
@@ -111,7 +117,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
             let range = NSMakeRange(0, self.RecordFileView.numberOfSections)
             let sections = NSIndexSet(indexesIn: range)
             self.RecordFileView.reloadSections(sections as IndexSet, with: .automatic)
-            continueRegist()
 
         } else {
             print("Audio Recorder was not working")
@@ -130,34 +135,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
                 print("AudioPlayer error ")
             }
         }
-    }
-
-    func continueRegist() {
-        
-        let headers: HTTPHeaders = ["Authorization": "Token ___(**token**)_____",
-                                    "Accept": "application/json"]
-        let audiodata = NSData (contentsOf: soundFileURL! as URL) as Data?
-        
-        let parameters: Parameters = [
-            "title" : "Trying to upload" ]
-        let URL = "163.180.173.83:9099/file"
-        Alamofire.upload(multipartFormData: { MultipartFormData in
-            MultipartFormData.append(audiodata!, withName: "file" , fileName: "sendFile.wav" , mimeType: "/wav")
-            for (key, value) in parameters {
-                MultipartFormData.append((value as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: key)
-            }
-        }
-            , to: "http://163.180.173.83:9099/file", encodingCompletion: {
-            EncodingResult in
-            switch EncodingResult{
-            case .success(let upload, _, _):
-                upload.responseData(completionHandler: { response in
-                    print("hello response is :: ",response)
-                })
-            case .failure(let encodingError):
-                print("ERROR RESPONSE: \(encodingError)")
-                }        }
-            )
     }
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
@@ -185,12 +162,58 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         let fileNames = recordFiles
         let fileName = fileNames[indexPath.row]
         cell.fileNameLabel!.text = fileName
-        cell.fileTimeLabel!.text = fileName
-//        cell.textLabel!.text = fileName //!는 optional이기 때문에 넣어주는 값임
-//        if let capacity:String = fileName{
-//            cell.detailTextLabel?.text = "\(capacity)"
-//        }
+        cell.fileTimeLabel!.text = "wav file"
+        
+        cell.uploadRecordFile={
+            print("this row file name : ", fileName)
+            
+            let soundFilePath = self.dirPaths[0] + "/"+fileName+".wav"
+            self.soundFileURL = NSURL(fileURLWithPath: soundFilePath)
+
+
+            let audiodata = NSData (contentsOf: self.soundFileURL! as URL) as Data?
+            
+            let parameters: Parameters = [
+                "title" : "Trying to upload" ]
+            Alamofire.upload(multipartFormData: { MultipartFormData in
+                MultipartFormData.append(audiodata!, withName: "file" , fileName: "sendFile.wav" , mimeType: "/wav")
+                for (key, value) in parameters {
+                    MultipartFormData.append((value as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: key)
+                }
+            }
+                , to: "http://163.180.173.83:9099/file", encodingCompletion: {
+                    EncodingResult in
+                    switch EncodingResult{
+                    case .success(let upload, _, _):
+                        upload.responseJSON(completionHandler: { response in
+                            debugPrint("그냥 response : ",response)
+                            let jsonDict = response.result.value as? NSDictionary
+                            
+                            print("num_speaker : ",jsonDict?.object(forKey: "num_speaker") ?? "default_speaker_count")
+                            print("text : ",jsonDict?.object(forKey: "text") ?? "default text")
+
+                            let text = self.jsonToString(json: jsonDict?.object(forKey: "text") as AnyObject)
+                            print("TEXT : " ,text)
+
+                        })
+                    case .failure(let encodingError):
+                        print("ERROR RESPONSE: \(encodingError)")
+                    }        }
+            )
+        }
+
         return cell
+    }
+    func jsonToString(json: AnyObject) -> String{
+        do {
+            let data1 =  try JSONSerialization.data(withJSONObject: json, options: JSONSerialization.WritingOptions.prettyPrinted) // first of all convert json to the data
+            let convertedString = String(data: data1, encoding: String.Encoding.utf8) // the data will be converted to the string
+            return convertedString!
+        } catch let myJSONError {
+            print(myJSONError)
+            return ""
+        }
+        
     }
     
 }

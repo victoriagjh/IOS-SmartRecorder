@@ -86,6 +86,7 @@
                                                         <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     </state>
                                                     <connections>
+                                                        <action selector="uploadFile:" destination="bp4-Rw-1OP" eventType="touchUpInside" id="dBz-9b-kc7"/>
                                                         <segue destination="fbe-j8-bea" kind="show" id="qoP-da-dOM"/>
                                                     </connections>
                                                 </button>
