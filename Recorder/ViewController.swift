@@ -111,8 +111,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
             let range = NSMakeRange(0, self.RecordFileView.numberOfSections)
             let sections = NSIndexSet(indexesIn: range)
             self.RecordFileView.reloadSections(sections as IndexSet, with: .automatic)
-//            RecordFileView.reloadData()
-        
+            continueRegist()
 
         } else {
             print("Audio Recorder was not working")
@@ -132,41 +131,34 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
             }
         }
     }
-    func continueRegist(_ sender: AnyObject) {
+
+    func continueRegist() {
         
         let headers: HTTPHeaders = ["Authorization": "Token ___(**token**)_____",
                                     "Accept": "application/json"]
-        
-        let audiodata = NSData (contentsOf: soundFileURL! as URL)
+        let audiodata = NSData (contentsOf: soundFileURL! as URL) as Data?
         
         let parameters: Parameters = [
-                                      "file": audiodata!,
-                                      ]
-        
-        let URL = "172.30.1.25:9999/home"
-//        Alamofire.Manager.upload(.PUT,
-//                                 URL,
-//                                 headers: headers,
-//                                 multipartFormData: { multipartFormData in
-//                                    multipartFormData.appendBodyPart(data: "3".dataUsingEncoding(NSUTF8StringEncoding), name: "from_account_id")
-//                                    multipartFormData.appendBodyPart(data: "4".dataUsingEncoding(NSUTF8StringEncoding), name: "to_account_id")
-//                                    multipartFormData.appendBodyPart(data: audioData, name: "file", fileName: "file", mimeType: "application/octet-stream")
-//        },
-//                                 encodingCompletion: { encodingResult in
-//                                    switch encodingResult {
-//
-//                                    case .Success(let upload, _, _):
-//                                        upload.responseJSON { response in
-//
-//                                        }
-//                                        
-//                                    case .Failure(let encodingError): break
-//                                        // Error while encoding request:
-//                                    }
-//            }
-//        )
+            "title" : "Trying to upload" ]
+        let URL = "163.180.173.83:9099/file"
+        Alamofire.upload(multipartFormData: { MultipartFormData in
+            MultipartFormData.append(audiodata!, withName: "file" , fileName: "sendFile.wav" , mimeType: "/wav")
+            for (key, value) in parameters {
+                MultipartFormData.append((value as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: key)
+            }
+        }
+            , to: "http://163.180.173.83:9099/file", encodingCompletion: {
+            EncodingResult in
+            switch EncodingResult{
+            case .success(let upload, _, _):
+                upload.responseData(completionHandler: { response in
+                    print("hello response is :: ",response)
+                })
+            case .failure(let encodingError):
+                print("ERROR RESPONSE: \(encodingError)")
+                }        }
+            )
     }
-    
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         recordButton.isEnabled = true
