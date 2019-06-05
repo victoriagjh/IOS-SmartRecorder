@@ -7,7 +7,6 @@ class recordCellTableViewCell:UITableViewCell {
     @IBOutlet weak var sendFileButton: UIButton!
     @IBOutlet weak var fileNameLabel: UILabel!
     var uploadRecordFile: (() -> Void)? = nil
-
     
     @IBAction func uploadFile(_ sender: Any) {
         uploadRecordFile?()
@@ -19,6 +18,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     var audioRecorder: AVAudioRecorder?
     var soundFileURL: NSURL?
     var recordFiles:[String] = [""]
+    
+    var num_speaker = Int()
+    var file_text = String()
     
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
@@ -59,6 +61,13 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "choiceSpeecher"{
+            let secondVC = segue.destination as! choiceSpeecherViewController
+            secondVC.recordFileData.num_speaker = self.num_speaker
+            secondVC.recordFileData.text = self.file_text
+        }
     }
 
     @IBAction func recordButton(_ sender: Any) {
@@ -186,19 +195,16 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
                     switch EncodingResult{
                     case .success(let upload, _, _):
                         upload.responseJSON(completionHandler: { response in
-                            debugPrint("그냥 response : ",response)
                             let jsonDict = response.result.value as? NSDictionary
-                            
-                            print("num_speaker : ",jsonDict?.object(forKey: "num_speaker") ?? "default_speaker_count")
-                            print("text : ",jsonDict?.object(forKey: "text") ?? "default text")
-
-                            let text = self.jsonToString(json: jsonDict?.object(forKey: "text") as AnyObject)
-                            print("TEXT : " ,text)
+                            self.file_text = self.jsonToString(json: jsonDict?.object(forKey: "text") as AnyObject)
+                            self.num_speaker = jsonDict?.object(forKey: "num_speaker") as! Int
+                            self.performSegue(withIdentifier: "choiceSpeecher", sender: self)
 
                         })
                     case .failure(let encodingError):
                         print("ERROR RESPONSE: \(encodingError)")
-                    }        }
+                    }
+            }
             )
         }
 
@@ -211,7 +217,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
             return convertedString!
         } catch let myJSONError {
             print(myJSONError)
-            return ""
+            return "FAIL json to string"
         }
         
     }

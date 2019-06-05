@@ -7,14 +7,20 @@
 //
 
 import UIKit
+struct data {
+    var num_speaker : Int
+    var text : String
+}
 class choiceSpeecherViewController: UIViewController,UIGestureRecognizerDelegate {
-    
+    var recordFileData = data(num_speaker: 0,text: "")
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(_:)))
         swipeRecognizer.direction = .right
         self.view.addGestureRecognizer(swipeRecognizer)
-        
+        print(recordFileData.num_speaker)
+        print(recordFileData.text)
         // Do any additional setup after loading the view, typically from a nib.
     }
 

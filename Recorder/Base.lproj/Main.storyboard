@@ -87,7 +87,6 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="uploadFile:" destination="bp4-Rw-1OP" eventType="touchUpInside" id="dBz-9b-kc7"/>
-                                                        <segue destination="fbe-j8-bea" kind="show" id="qoP-da-dOM"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -131,6 +130,7 @@
                         <outlet property="playButton" destination="hGq-Vn-jgK" id="JQd-Sx-Rd6"/>
                         <outlet property="recordButton" destination="w8x-ml-cKs" id="SNc-hd-4Da"/>
                         <outlet property="stopButton" destination="ac2-cI-xXi" id="bNr-46-wBH"/>
+                        <segue destination="fbe-j8-bea" kind="show" identifier="choiceSpeecher" id="v40-mz-Uhj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
