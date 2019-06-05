@@ -19,6 +19,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     var soundFileURL: NSURL?
     var recordFiles:[String] = [""]
     
+    var file_name = String()
     var num_speaker = Int()
     var file_text = String()
     
@@ -67,6 +68,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
             let secondVC = segue.destination as! choiceSpeecherViewController
             secondVC.recordFileData.num_speaker = self.num_speaker
             secondVC.recordFileData.text = self.file_text
+            secondVC.recordFileData.file_name = self.file_name
         }
     }
 
@@ -185,7 +187,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
             let parameters: Parameters = [
                 "title" : "Trying to upload" ]
             Alamofire.upload(multipartFormData: { MultipartFormData in
-                MultipartFormData.append(audiodata!, withName: "file" , fileName: "sendFile.wav" , mimeType: "/wav")
+                MultipartFormData.append(audiodata!, withName: "file" , fileName: fileName+".wav" , mimeType: "/wav")
                 for (key, value) in parameters {
                     MultipartFormData.append((value as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: key)
                 }
@@ -196,6 +198,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
                     case .success(let upload, _, _):
                         upload.responseJSON(completionHandler: { response in
                             let jsonDict = response.result.value as? NSDictionary
+                            self.file_name = fileName
                             self.file_text = self.jsonToString(json: jsonDict?.object(forKey: "text") as AnyObject)
                             self.num_speaker = jsonDict?.object(forKey: "num_speaker") as! Int
                             self.performSegue(withIdentifier: "choiceSpeecher", sender: self)
